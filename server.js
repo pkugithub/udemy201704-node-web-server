@@ -14,7 +14,7 @@ hbs.registerHelper('getCurrentYear', () => {
 })
 
 hbs.registerHelper('screamIt', (text) => {
-  return text.toUpperCase(text)
+  return text? text.toUpperCase() : ' '
 })
 
 // set
@@ -64,6 +64,13 @@ app.get('/about', (req, res) => {
     pageTitle: 'About Me Page'
   })
 })
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page'
+  })
+})
+
 
 app.get('/bad', (req, res) => {
   res.send({error: 'you bad looser'})
